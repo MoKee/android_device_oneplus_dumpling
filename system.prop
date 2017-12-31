@@ -175,7 +175,7 @@ ro.qti.sensors.dpc=true
 ro.qti.sensors.multishake=true
 
 # Storage
-ro.sys.sdcardfs=true
+#ro.sys.sdcardfs=true
 
 # Timeservice
 persist.timed.enable=true
