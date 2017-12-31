@@ -18,11 +18,21 @@ etc/acdbdata/adsp_avs_config.acdb
 
 # Camera
 bin/mm-qcamera-daemon
+etc/camera/attribute.model
 etc/camera/camera_config.xml
 etc/camera/imx350_chromatix.xml
 etc/camera/imx371_chromatix.xml
 etc/camera/imx376k_chromatix.xml
 etc/camera/imx398_chromatix.xml
+etc/camera/license.lic
+etc/camera/ashdr/iso617_4608x3456.ncf
+etc/camera/ashdr/ncf_pack.ncf
+etc/camera/cp/CPCalibrationData.bin
+etc/camera/cp/systemParams.bin
+etc/camera/cp/SystemParamsBokeh.bin
+etc/camera/cp/SystemParamsFusion.bin
+etc/camera/sticker/megviifacepp_0_4_7_model
+etc/camera/sticker/mgbeautify_1_2_3_model
 lib/hw/camera.msm8998.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
@@ -33,6 +43,8 @@ lib/libVDHDRAPI.so
 vendor/lib/libarcsoft_dualcam_refocus.so
 vendor/lib/libblurbuster.so
 vendor/lib/libcamera_bokeh_wrapper.so
+vendor/lib/libcamera_cp_wrapper.so
+vendor/lib/libcamera_oneplus_bokeh_wrapper.so
 vendor/lib/libcdsprpc.so
 vendor/lib/libchromaflash.so
 vendor/lib/libcvface_api.so
