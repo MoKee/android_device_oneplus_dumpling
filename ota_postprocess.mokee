@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# Copyright (C) 2017 The MoKee Open Source Project
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+
+script=$(cat updater-script)
+
+cat << EOF > updater-script
+package_extract_file("fbe_check.sh", "/tmp/fbe_check.sh");
+set_metadata("/tmp/fbe_check.sh", "uid", 0, "gid", 0, "mode", 0755);
+if !is_mounted("/data") then
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/userdata", "/data", "");
+endif;
+if run_program("/tmp/fbe_check.sh") != 0 then
+ui_print("===========================================");
+ui_print("|              !!! ERROR !!!              |");
+ui_print("|                                         |");
+ui_print("| File-based Encryption is required.      |");
+ui_print("|                                         |");
+ui_print("| Backup your data (including internal    |");
+ui_print("| storage) and format the data partition. |");
+ui_print("|                                         |");
+ui_print("| Chinese: http://t.cn/R92kLm3            |");
+ui_print("| English: https://t.co/7jDlsf2y6v        |");
+ui_print("===========================================");
+abort("FBE check failed.");
+endif;
+unmount("/data");
+EOF
+
+echo "$script" >> updater-script
