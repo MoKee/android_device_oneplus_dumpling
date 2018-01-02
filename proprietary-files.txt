@@ -18,7 +18,6 @@ etc/acdbdata/adsp_avs_config.acdb
 
 # Camera
 bin/mm-qcamera-daemon
-etc/camera/camera_config.xml
 etc/camera/imx350_chromatix.xml
 etc/camera/imx371_chromatix.xml
 etc/camera/imx376k_chromatix.xml
