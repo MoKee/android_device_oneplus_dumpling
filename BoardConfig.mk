@@ -27,6 +27,9 @@
 
 DEVICE_PATH := device/oneplus/dumpling
 
+# HAX: Remove AOSP
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
 # Assertions
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_OTA_ASSERT_DEVICE := OnePlus5T,dumpling
