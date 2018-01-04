@@ -72,8 +72,7 @@ PRODUCT_COPY_FILES += \
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    fingerprint.msm8998 \
-    fingerprintd
+    fingerprint.goodix
 
 # Keylayout
 PRODUCT_COPY_FILES += \
