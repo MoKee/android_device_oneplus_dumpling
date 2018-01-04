@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "FingerprintHalWrapper"
+#define LOG_TAG "GoodixHalWrapper"
 
 #include <dlfcn.h>
 #include <errno.h>
@@ -25,8 +25,6 @@
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
 #include <utils/threads.h>
-
-#define FP_DETECT "/sys/devices/soc/soc:fingerprint_detect/sensor_version"
 
 typedef struct {
     fingerprint_device_t base;
@@ -41,65 +39,10 @@ static union {
     const hw_module_t *hw_module;
 } vendor;
 
-static int get_sensor_version()
-{
-    int fd, ret;
-    char buf[80];
-
-    fd = open(FP_DETECT, O_RDONLY);
-    if (fd < 0) {
-        strerror_r(errno, buf, sizeof(buf));
-        ALOGE("%s: Failed to open fp_detect: %d %s", __func__, errno, buf);
-        ret = -errno;
-        goto end;
-    }
-
-    if (read(fd, buf, 80) < 0) {
-        strerror_r(errno, buf, sizeof(buf));
-        ALOGE("%s: Failed to read fp_detect: %d %s", __func__, errno, buf);
-        ret = -errno;
-        goto close;
-    }
-
-    if (sscanf(buf, "%d", &ret) != 1) {
-        ALOGE("%s: Failed to parse fp_detect", __func__);
-        ret = -EINVAL;
-        goto close;
-    }
-
-close:
-    close(fd);
-end:
-    return ret;
-}
-
 static int ensure_vendor_module_is_loaded(void)
 {
     if (!vendor.module) {
-        int ret;
-
-        int sensor_version = get_sensor_version();
-        if (sensor_version < 0) {
-            ALOGE("%s: Failed to detect sensor version", __func__);
-            return 0;
-        }
-
-        ALOGI("%s: Loading HAL for sensor version %d", __func__, sensor_version);
-        switch (sensor_version) {
-            case 0x01:
-            case 0x02:
-                ALOGI("%s: It's a fpc sensor", __func__);
-                ret = hw_get_module_by_class("fingerprint", "fpc", &vendor.hw_module);
-                break;
-            case 0x03:
-                ALOGI("%s: It's a goodix sensor", __func__);
-                ret = hw_get_module("gf_fingerprint", &vendor.hw_module);
-                break;
-            default:
-                ALOGE("%s: Unsupported sensor", __func__);
-                return 0;
-        }
-
+        int ret = hw_get_module("gf_fingerprint", &vendor.hw_module);
         if (ret) {
             ALOGE("%s: Failed to open vendor module, error %d", __func__, ret);
             vendor.module = NULL;
@@ -274,7 +217,7 @@ fingerprint_module_t HAL_MODULE_INFO_SYM = {
         .module_api_version = FINGERPRINT_MODULE_API_VERSION_2_1,
         .hal_api_version    = HARDWARE_HAL_API_VERSION,
         .id                 = FINGERPRINT_HARDWARE_MODULE_ID,
-        .name               = "Fingerprint HAL Wrapper for OnePlus 5T",
+        .name               = "Goodix Fingerprint HAL Wrapper for OnePlus 5T",
         .author             = "XiNGRZ",
         .methods            = &fingerprint_module_methods,
         .dso = NULL,        /* remove compilation warnings */
