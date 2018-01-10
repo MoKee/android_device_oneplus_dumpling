@@ -26,7 +26,7 @@ $(call inherit-product, vendor/oneplus/dumpling/dumpling-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-mokee
+# DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-mokee
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
