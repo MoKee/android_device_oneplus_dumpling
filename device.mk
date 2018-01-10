@@ -64,9 +64,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_tasha.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tasha.xml
 
 # Camera
-PRODUCT_PACKAGES += \
-    Camera2
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/camera_config.xml:system/etc/camera/camera_config.xml
 
