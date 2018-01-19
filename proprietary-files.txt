@@ -17,11 +17,9 @@ lib/libfiltergenerator.so
 lib/libmm-qcamera.so
 lib/libopposfr.so
 lib/libscveBlobDescriptor.so
-lib/libscveBlobDescriptor_skel.so
 lib/libscveBlobDescriptor_stub.so
 lib/libscveCommon.so
 lib/libscveCommon_stub.so
-lib/libscveFaceLandmark_skel.so
 lib/libscveFaceLandmarks.so
 lib/libscveFaceLandmarks_stub.so
 lib/libscveFaceRecognition.so
@@ -31,7 +29,6 @@ lib/libscveObjectTracker.so
 lib/libscveObjectTracker_stub.so
 lib/libscvePanorama.so
 lib/libscvePanorama_lite.so
-lib/libscveT2T_skel.so
 lib/libtrueportrait.so
 lib64/libblurbuster.so
 lib64/libfiltergenerator.so
