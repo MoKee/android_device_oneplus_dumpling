@@ -37,5 +37,5 @@ function fix_goodix () {
         "$MK_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/"$1"
 }
 
-fix_goodix lib/hw/fingerprint.goodix.so
-fix_goodix lib64/hw/fingerprint.goodix.so
+fix_goodix vendor/lib/hw/fingerprint.goodix.so
+fix_goodix vendor/lib64/hw/fingerprint.goodix.so
