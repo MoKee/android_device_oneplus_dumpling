@@ -34,9 +34,9 @@ PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
         PRODUCT_NAME=OnePlus5T \
-        PRIVATE_BUILD_DESC="OnePlus5T-user 8.1.0 OPM1.171019.011 22 release-keys"
+        PRIVATE_BUILD_DESC="OnePlus5T-user 8.1.0 OPM1.171019.011 26 release-keys"
 
-BUILD_FINGERPRINT := OnePlus/OnePlus5T/OnePlus5T:8.1.0/OPM1.171019.011/04082344:user/release-keys
+BUILD_FINGERPRINT := OnePlus/OnePlus5T/OnePlus5T:8.1.0/OPM1.171019.011/05142315:user/release-keys
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.mk.maintainer=XiNGRZ
