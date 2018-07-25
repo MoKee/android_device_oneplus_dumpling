@@ -16,9 +16,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-script=$(cat updater-script)
-
-cat << EOF > updater-script
+cat << EOF >> pre.txt
 package_extract_file("fbe_check.sh", "/tmp/fbe_check.sh");
 set_metadata("/tmp/fbe_check.sh", "uid", 0, "gid", 0, "mode", 0755);
 if !is_mounted("/data") then
@@ -40,5 +38,3 @@ abort("FBE check failed.");
 endif;
 unmount("/data");
 EOF
-
-echo "$script" >> updater-script
