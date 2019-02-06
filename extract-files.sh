@@ -30,12 +30,12 @@ export DEVICE_BRINGUP_YEAR=2017
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-LINEAGE_ROOT="$MY_DIR"/../../..
+MK_ROOT="$MY_DIR"/../../..
 
 function fix_goodix () {
     sed -i \
         's|\x00goodix.fingerprint\x00|\x00fingerprint\x00\x00\x00\x00\x00\x00\x00\x00|' \
-        "$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/"$1"
+        "$MK_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary/"$1"
 }
 
 fix_goodix vendor/lib/hw/fingerprint.goodix.so
