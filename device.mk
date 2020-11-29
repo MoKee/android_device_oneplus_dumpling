@@ -28,7 +28,7 @@ $(call inherit-product, vendor/oneplus/dumpling/dumpling-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    $(LOCAL_PATH)/overlay/lineage-sdk
+    $(LOCAL_PATH)/overlay/mokee-sdk
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
