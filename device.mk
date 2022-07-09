@@ -27,7 +27,7 @@ $(call inherit-product, vendor/oneplus/dumpling/dumpling-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-mokee
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
@@ -53,7 +53,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus
+    vendor.mokee.touch@1.0-service.oneplus
 
 # Inherit from oneplus msm8998-common
 $(call inherit-product, device/oneplus/msm8998-common/common.mk)
